@@ -1,6 +1,6 @@
 ---
 name: commit-message-style
-description: "Write commit messages in the preferred style for this workspace: `type: imperative summary` with backticks around code identifiers and no scope. Use when you are about to `git commit`, splitting work into multiple commits, or when the user asks you to commit code."
+description: "Write commit messages in the preferred generic style: `type: imperative summary` with backticks around code identifiers and no scope. Use when you are about to `git commit`, splitting work into multiple commits, or when the user asks you to commit code."
 ---
 
 # Commit Message Style
@@ -14,8 +14,8 @@ description: "Write commit messages in the preferred style for this workspace: `
 - Append an issue reference at the end only when relevant: `... #629`
 - For non-trivial changes, add a commit body (blank line after subject) explaining:
   - **Why** the change is necessary (problem/constraint), and
-  - **What** changed at a high level (only if complex enough).
-- Keep the body short (typically 1–5 lines), wrap at ~72 chars, and avoid implementation details.
+  - **What** changed at a high level (only if complex enough to benefit from an overview).
+- Keep the body short (typically 1–8 lines), wrap at ~72 chars, and avoid implementation details.
 
 ## Types
 
@@ -34,6 +34,7 @@ description: "Write commit messages in the preferred style for this workspace: `
 - If asked to address multiple review remarks: make one commit per remark (smallest coherent change per commit).
 - Choose the `type` by intent (behavior change vs structure vs tests vs docs).
 - Prefer stable naming (don’t churn identifiers) unless the change is explicitly a rename/refactor.
+- When the subject/body contain backticks, avoid shell command-substitution by passing the message via stdin, e.g. `git commit -F -` with a quoted heredoc.
 
 ## Examples (match style)
 
